@@ -1,0 +1,10 @@
+﻿<Window x:Class="TacticalReload.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TacticalReload"
+        mc:Ignorable="d"
+        Title="Tactical Reloader" Height="730" Width="1270" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" KeyDown="KeyPressed" >
+    <Frame x:Name="LoadedPage" Height="720" Width="1270" NavigationUIVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />
+</Window>

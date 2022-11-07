@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\Overbyte.ttf" />
+    <None Remove="Resources\Background.png" />
+    <None Remove="Resources\BackgroundGame.png" />
+    <None Remove="Resources\Shotgun.gif" />
+    <None Remove="Resources\Slider.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Fonts\Overbyte.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\Background.png" />
+    <Resource Include="Resources\BackgroundGame.png" />
+    <Resource Include="Resources\Shotgun.gif" />
+    <Resource Include="Resources\Slider.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Systems\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Res.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
