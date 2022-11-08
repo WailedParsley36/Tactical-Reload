@@ -5,7 +5,21 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <Title>Tactical Reload</Title>
+    <Authors>Stohanzl Studios, Patrik Stohanzl</Authors>
+    <Company>Stohanzl Studios</Company>
+    <Product>Tactical Reload</Product>
+    <Description>Game about reloading your gun with friend ;)</Description>
+    <Copyright>2020 All rights reserved. Stohanzl Studios</Copyright>
+    <SignAssembly>False</SignAssembly>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Systems\**" />
+    <EmbeddedResource Remove="Systems\**" />
+    <None Remove="Systems\**" />
+    <Page Remove="Systems\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="Fonts\Overbyte.ttf" />
@@ -23,10 +37,6 @@
     <Resource Include="Resources\BackgroundGame.png" />
     <Resource Include="Resources\Shotgun.gif" />
     <Resource Include="Resources\Slider.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Systems\" />
   </ItemGroup>
 
   <ItemGroup>

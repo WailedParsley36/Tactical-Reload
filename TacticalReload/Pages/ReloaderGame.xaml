@@ -20,14 +20,16 @@
                 <!--Health Bar-->
                 <DockPanel LastChildFill="False" DockPanel.Dock="Top" Margin="50,15,75,0">
                     <Label x:Name="PlayerName" FontSize="40" Content="Player 1" Foreground="White" DockPanel.Dock="Top" FontFamily="Cooper Black" />
-                    <ProgressBar x:Name="PlayerHealth" DockPanel.Dock="Bottom" Height="65" Margin="0,15,0,0" BorderBrush="Black" BorderThickness="4,4,4,4" >
-                        <ProgressBar.Background>
-                            <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
-                                <GradientStop Color="#FFFF2300" Offset="0.5"/>
-                                <GradientStop Color="#FFFF8C01" Offset="1"/>
-                            </LinearGradientBrush>
-                        </ProgressBar.Background>
-                    </ProgressBar>
+                    <Border DockPanel.Dock="Top" Height="65" Margin="0,15,0,0" BorderBrush="Black" BorderThickness="4,4,4,4" >
+                        <ProgressBar x:Name="PlayerHealth" DockPanel.Dock="Bottom" BorderBrush="{x:Null}" BorderThickness="4,4,4,4" Background="{x:Null}" Value="100" >
+                            <ProgressBar.Foreground>
+                                <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFFF2300" Offset="0.5"/>
+                                    <GradientStop Color="#FFFF8C01" Offset="1"/>
+                                </LinearGradientBrush>
+                            </ProgressBar.Foreground>
+                        </ProgressBar>
+                    </Border>
                 </DockPanel>
 
                 <!--Gun Animation-->
@@ -45,29 +47,103 @@
                 <!--Reload Bar-->
                 <DockPanel LastChildFill="False" DockPanel.Dock="Bottom" Height="200" Margin="0,-50,0,0">
                     <!--Description-->
-                    <Label x:Name="BarDescription" DockPanel.Dock="Top" FontFamily="Cooper Black" FontSize="30" Foreground="White" Content="Reload..." HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,15,0,5" />
+                    <Label x:Name="BarDescription" DockPanel.Dock="Top" FontFamily="Cooper Black" FontSize="30" Foreground="White" Content="Reloading..." HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,15,0,5" />
 
                     <!--Reload Bar-->
                     <Border x:Name="ReloadElement" BorderBrush="Black" BorderThickness="5,5,5,5" Width="485" Height="68" HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top">
-                        <DockPanel> 
-                            
+                        <DockPanel LastChildFill="False">
+                            <DockPanel.Background>
+                                <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                                    <GradientStop Color="#FF7DFF00"/>
+                                    <GradientStop Color="Red" Offset="1"/>
+                                </LinearGradientBrush>
+                            </DockPanel.Background>
                         </DockPanel>
                     </Border>
+                    <DockPanel x:Name="ReloadMarker" LastChildFill="False" Height="100" Margin="-465,-85,0,0" Width="100" DockPanel.Dock="Top" Panel.ZIndex="2" >
+                        <DockPanel.Background>
+                            <ImageBrush ImageSource="/Resources/Slider.png" Stretch="Uniform"/>
+                        </DockPanel.Background>
+                    </DockPanel>
+                    <DockPanel x:Name="ReloadRange" LastChildFill="False" Margin="232,-100,374,0" Height="58" Width="475" Background="#FF92A3FF" DockPanel.Dock="Top" Panel.ZIndex="1" UseLayoutRounding="False"/>
 
                     <!--Cooldown Bar-->
                     <Border x:Name="CooldownElement" BorderBrush="Black" BorderThickness="5,5,5,5" Width="485" Height="68" HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top" Visibility="Collapsed">
-                        <ProgressBar x:Name="CooldownBar" DockPanel.Dock="Top" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Foreground="#FF05B5FF" Value="100" />
+                        <ProgressBar x:Name="CooldownBar" DockPanel.Dock="Top" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Value="100" >
+                            <ProgressBar.Foreground>
+                                <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                                    <GradientStop Color="DeepSkyBlue"/>
+                                    <GradientStop Color="Red" Offset="0.5"/>
+                                </LinearGradientBrush>
+                            </ProgressBar.Foreground>
+                        </ProgressBar>
                     </Border>
                 </DockPanel>
-                <!--<DockPanel Margin="250,-200,250,0" LastChildFill="False" DockPanel.Dock="Top" VerticalAlignment="Center" Width="600">
-                <DockPanel x:Name="ProgressSlider" Margin="-585,0,0,-75" Width="90" Height="90" LastChildFill="False" DockPanel.Dock="Top" Panel.ZIndex="1" >
-                    <DockPanel.Background>
-                        <ImageBrush Stretch="Uniform" TileMode="Tile" ImageSource="/Resources/Slider.png"/>
-                    </DockPanel.Background>
+            </DockPanel>
+            <DockPanel x:Name="Game2" LastChildFill="False" Width="635">
+
+                <!--Health Bar-->
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top" Margin="50,15,75,0">
+                    <Label x:Name="PlayerName2" FontSize="40" Content="Player 1" Foreground="White" DockPanel.Dock="Top" FontFamily="Cooper Black" />
+                    <Border DockPanel.Dock="Top" Height="65" Margin="0,15,0,0" BorderBrush="Black" BorderThickness="4,4,4,4" >
+                        <ProgressBar x:Name="PlayerHealth2" DockPanel.Dock="Bottom" BorderBrush="{x:Null}" BorderThickness="4,4,4,4" Background="{x:Null}" Value="100" >
+                            <ProgressBar.Foreground>
+                                <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFFF2300" Offset="0.5"/>
+                                    <GradientStop Color="#FFFF8C01" Offset="1"/>
+                                </LinearGradientBrush>
+                            </ProgressBar.Foreground>
+                        </ProgressBar>
+                    </Border>
                 </DockPanel>
-                <Border DockPanel.Dock="Top" Height="60" Background="#FFCACACA" BorderBrush="Black" BorderThickness="4,4,4,4" />
-                <DockPanel x:Name="TargetBar" LastChildFill="False" Background="#FF26BD11" Margin="546,-60,0,0" Width="50" Height="52" />
-            </DockPanel>-->
+
+                <!--Gun Animation-->
+                <Image x:Name="GunAnimation2" gif:ImageBehavior.AnimatedSource="/Resources/Shotgun.gif" gif:ImageBehavior.AutoStart="False" DockPanel.Dock="Top" RenderTransformOrigin="0.5,0.5" Width="400" Height="400" >
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="-1.4" ScaleY="1.4"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="50" X="75"/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+
+                <!--Reload Bar-->
+                <DockPanel LastChildFill="False" DockPanel.Dock="Bottom" Height="200" Margin="0,-50,0,0">
+                    <!--Description-->
+                    <Label x:Name="BarDescription2" DockPanel.Dock="Top" FontFamily="Cooper Black" FontSize="30" Foreground="White" Content="Reloading..." HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,15,0,5" />
+
+                    <!--Reload Bar-->
+                    <Border x:Name="ReloadElement2" BorderBrush="Black" BorderThickness="5,5,5,5" Width="485" Height="68" HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top">
+                        <DockPanel LastChildFill="False">
+                            <DockPanel.Background>
+                                <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                                    <GradientStop Color="#FF7DFF00"/>
+                                    <GradientStop Color="Red" Offset="1"/>
+                                </LinearGradientBrush>
+                            </DockPanel.Background>
+                        </DockPanel>
+                    </Border>
+                    <DockPanel x:Name="ReloadMarker2" LastChildFill="False" Height="100" Margin="-465,-85,0,0" Width="100" DockPanel.Dock="Top" Panel.ZIndex="2" >
+                        <DockPanel.Background>
+                            <ImageBrush ImageSource="/Resources/Slider.png" Stretch="Uniform"/>
+                        </DockPanel.Background>
+                    </DockPanel>
+                    <DockPanel x:Name="ReloadRange2" LastChildFill="False" Margin="232,-100,374,0" Height="58" Width="475" Background="#FF92A3FF" DockPanel.Dock="Top" Panel.ZIndex="1" UseLayoutRounding="False"/>
+
+                    <!--Cooldown Bar-->
+                    <Border x:Name="CooldownElement2" BorderBrush="Black" BorderThickness="5,5,5,5" Width="485" Height="68" HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top" Visibility="Collapsed">
+                        <ProgressBar x:Name="CooldownBar2" DockPanel.Dock="Top" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Value="100" >
+                            <ProgressBar.Foreground>
+                                <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                                    <GradientStop Color="DeepSkyBlue"/>
+                                    <GradientStop Color="Red" Offset="0.5"/>
+                                </LinearGradientBrush>
+                            </ProgressBar.Foreground>
+                        </ProgressBar>
+                    </Border>
+                </DockPanel>
             </DockPanel>
         </DockPanel>
 
